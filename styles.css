@@ -1,0 +1,165 @@
+/* Reset for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #181818;  /* Dark background for dark mode */
+    color: #e0e0e0;  /* Light text color for readability */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.app-container {
+    background-color: #212121;  /* Darker container */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    text-align: center;
+    max-width: 100%;
+    z-index: 1; /* Ensure todo list stays in front */
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #03A9F4;  /* Light blue for headings */
+}
+
+/* Input and Buttons Styles */
+.todo-input-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+#todo-input {
+    width: 70%;
+    padding: 12px 18px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #333;  /* Dark background for input */
+    color: #ffffff;  /* White text in the input field */
+    transition: all 0.3s;
+}
+
+#todo-input:focus {
+    outline: none;
+    border-color: #01579B;
+}
+
+button {
+    padding: 12px 20px;  /* Adjust padding to ensure enough space */
+    background-color: #01579B;  /* Dark blue */
+    color: white;
+    font-size: 14px;  /* Smaller text size */
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: auto;  /* Let button width adjust to fit content */
+    min-width: 80px;  /* Ensure buttons aren't too small */
+    white-space: nowrap;  /* Prevent text from breaking */
+}
+
+button:hover {
+    background-color: #013C61;  /* Even darker blue on hover */
+}
+
+button:focus {
+    outline: none;
+}
+
+#todo-list {
+    list-style-type: none;
+    margin-top: 20px;
+}
+
+li {
+    background-color: #333;  /* Dark background for list items */
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #ffffff;  /* White text for tasks */
+}
+
+li:hover {
+    transform: translateY(-5px);  /* Move up slightly on hover */
+}
+
+li .delete-btn {
+    background-color: #FF5722;  /* Red */
+    color: white;
+    border: none;
+    border-radius: 4px;  /* Rectangle shape for delete button */
+    padding: 8px 15px;  /* Adjust padding to make it a box */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+li .delete-btn:hover {
+    background-color: #E64A19;  /* Darker red on hover */
+}
+
+#download-todo-list {
+    background-color: #01579B;  /* Dark blue for download button */
+    margin-top: 15px;
+}
+
+#download-todo-list:hover {
+    background-color: #013C61;  /* Even darker blue on hover */
+}
+
+/* Hide file input */
+input[type="file"] {
+    display: none;
+}
+
+/* New Style for the Drifting Dots */
+#dots-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100vh;
+    pointer-events: none;  /* Disable interaction with the background */
+}
+
+.dot {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: rgba(1, 87, 155, 0.8);  /* Soft blue color for dots */
+    border-radius: 50%;
+    animation: drift 15s infinite linear;
+}
+
+/* Animation for dots drifting */
+@keyframes drift {
+    0% {
+        transform: translateY(0) translateX(0);
+    }
+    50% {
+        transform: translateY(30vh) translateX(20vw);
+    }
+    100% {
+        transform: translateY(0) translateX(40vw);
+    }
+}
